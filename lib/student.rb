@@ -1,10 +1,10 @@
 class Student
   attr_accessor :name, :grade
   attr_reader :id
-  def initialize(name="Joe", grade=9)
+  def initialize(id = nil, name="Joe", grade=9)
     @name = name
     @grade = grade
-    @id = nil
+    @id = id
   end 
   
   def self.create_table
@@ -32,6 +32,11 @@ class Student
     new_student.save
     new_student
   end
+  
+  def self.new_from_db(db)
+    db.each do |row|
+    self.new(row[0], row[1], row[2])
+    
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]  
   
