@@ -1,7 +1,7 @@
 class Student
   attr_accessor :name, :grade
   attr_reader :id
-  def initialize(id = nil, grade=9, name="Joe")
+  def initialize(grade=9, name="Joe", id = nil)
     @name = name
     @grade = grade
     @id = id
